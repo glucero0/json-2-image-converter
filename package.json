@@ -1,0 +1,39 @@
+{
+  "name": "json-to-image-converter",
+  "version": "0.1.0",
+  "description": "Compile adventure-location JSON into an editable scene file and optionally render stills with Gemini.",
+  "type": "module",
+  "bin": {
+    "json-to-image": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "test": "tsx --test test/compile.test.ts test/prompt.test.ts test/io.test.ts test/cli.test.ts",
+    "convert": "tsx src/cli.ts"
+  },
+  "keywords": [
+    "cli",
+    "json",
+    "scene",
+    "image"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.19.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

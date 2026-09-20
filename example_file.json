@@ -1,0 +1,354 @@
+{
+  "initialLocationId": "small_house",
+  "locations": [
+    {
+      "id": "small_house",
+      "name": "Small House",
+      "description": "You are in a small house. Sunlight filters through the window, illuminating a modest and cozy interior.",
+      "exits": {
+        "north": {
+          "targetLocationId": "clearing",
+          "description": "through the north-facing door into the Clearing"
+        }
+      },
+      "objects": [
+        {
+          "id": "fathers_chest",
+          "name": "Late father's chest",
+          "position": "south",
+          "aliases": [
+            "chest",
+            "father's chest",
+            "late father's chest",
+            "fathers chest",
+            "father chest"
+          ],
+          "lookDescription": "a chest that was owned by your late father, reinforced with iron bands and locked tightly.",
+          "requirements": [
+            {
+              "type": "item",
+              "item": "crowbar",
+              "description": "Requires a crowbar to pry open.",
+              "failMessage": "You try to open your late father's chest, but it fails to open because you don't have the correct item (a crowbar) used to open it yet."
+            }
+          ],
+          "state": {
+            "status": "locked",
+            "isOpen": false,
+            "isLocked": true
+          },
+          "interactions": {
+            "onOpenSuccess": "Using your crowbar, you wedge the iron tip beneath the latch and pry open your late father's chest! Inside lies your inheritance.",
+            "onInteractSuccess": "You examine the reinforced chest. It is firmly locked and requires a crowbar to pry open."
+          }
+        },
+        {
+          "id": "bed",
+          "name": "Bed",
+          "position": "south",
+          "aliases": [
+            "bed",
+            "south bed",
+            "mattress"
+          ],
+          "lookDescription": "a modest bed on the south side of the room with a wool blanket and feathered pillow.",
+          "requirements": [
+            {
+              "type": "fatigue",
+              "requiredFatigue": true,
+              "description": "You must be fatigued in order to sleep.",
+              "failMessage": "You lie down on the bed, but you're not tired. You are not fatigued, so it's not going to let you sleep with your quest ahead."
+            }
+          ],
+          "state": {
+            "isRested": false
+          },
+          "interactions": {
+            "onInteractSuccess": "Feeling thoroughly fatigued, you close your eyes and rest peacefully on the bed. You awake feeling refreshed and invigorated, no longer fatigued!",
+            "onInteractAlreadyDone": "You have already rested on the bed and are not fatigued."
+          }
+        },
+        {
+          "id": "pots_and_pans",
+          "name": "Pots and pans",
+          "position": "east",
+          "aliases": [
+            "pots and pans",
+            "pots & pans",
+            "pot and pan",
+            "pots",
+            "pans",
+            "counter",
+            "caraf",
+            "wash basin"
+          ],
+          "lookDescription": "some pots and pans piled on the counter on the east side on an old table, with a wash basin and carafe of fresh well water near by",
+          "requirements": [],
+          "state": {
+            "status": "dirty",
+            "isClean": false
+          },
+          "interactions": {
+            "onInteractSuccess": "You interact with the pots and pans, using the fresh well water, and rolling up your sleeves to scrub away the grease and grime until they are clean!",
+            "onInteractAlreadyDone": "The pots and pans are already clean. You interact with them, but nothing happens."
+          }
+        },
+        {
+          "id": "coat_rack",
+          "name": "Coat rack",
+          "position": "west",
+          "aliases": [
+            "coat rack",
+            "coatrack",
+            "rack",
+            "coat"
+          ],
+          "lookDescription": "a coat rack on the west side holding your late father's sturdy travel coat.",
+          "requirements": [],
+          "state": {
+            "status": "hanging",
+            "coatTaken": false,
+            "isWorn": false
+          },
+          "interactions": {
+            "onInteractSuccess": "You interact with the coat rack, taking your late father's sturdy travel coat off the rack and putting it on. It fits warmly around your shoulders.",
+            "onInteractAlreadyDone": "The coat rack is bare; you have already taken the coat off the rack and are wearing it warmly."
+          }
+        },
+        {
+          "id": "north_door",
+          "name": "North-facing door",
+          "position": "north",
+          "aliases": [
+            "door",
+            "north-facing door",
+            "north facing door",
+            "north door"
+          ],
+          "lookDescription": "a heavy wooden north-facing door leading outside to the Clearing.",
+          "requirements": [],
+          "state": {
+            "status": "closed",
+            "isOpen": false
+          },
+          "interactions": {
+            "onOpenSuccess": "You push open the north-facing door and step out of the house into the crisp fresh air of the Clearing.",
+            "onInteractSuccess": "You push open the north-facing door and step out of the house into the Clearing."
+          }
+        }
+      ],
+      "npcs": []
+    },
+    {
+      "id": "clearing",
+      "name": "Clearing",
+      "description": "You are in a peaceful clearing that sits just outside of the north door of the house. A gentle breeze stirs the trees around you.",
+      "exits": {
+        "south": {
+          "targetLocationId": "small_house",
+          "description": "through the wooden door back into the small house"
+        },
+        "east": {
+          "targetLocationId": "smoulder",
+          "description": "along the dirt path to the small town of Smoulder"
+        }
+      },
+      "objects": [
+        {
+          "id": "house_door",
+          "name": "House door",
+          "position": "south",
+          "aliases": [
+            "door",
+            "house door",
+            "south door",
+            "house",
+            "small house",
+            "cottage",
+            "enter house",
+            "reenter house"
+          ],
+          "lookDescription": "the wooden door of the house to the south, letting you reenter the house.",
+          "requirements": [],
+          "state": {
+            "status": "closed",
+            "isOpen": false
+          },
+          "interactions": {
+            "onOpenSuccess": "You open the door to the south and step back into the cozy warmth of the small house.",
+            "onInteractSuccess": "You open the door to the south and reenter the small house."
+          }
+        },
+        {
+          "id": "wood_pile",
+          "name": "Wood pile",
+          "position": "west",
+          "aliases": [
+            "wood pile",
+            "woodpile",
+            "wood",
+            "logs",
+            "firewood",
+            "pile of wood",
+            "pile"
+          ],
+          "lookDescription": "a neatly stacked wood pile on the west side of the Clearing, where Jonathon is sitting.",
+          "requirements": [],
+          "state": {},
+          "interactions": {
+            "onInteractSuccess": "You walk over to the wood pile on the west side of the Clearing where Jonathon is sitting."
+          }
+        },
+        {
+          "id": "pond",
+          "name": "Pond",
+          "position": "north",
+          "aliases": [
+            "pond",
+            "water",
+            "north pond",
+            "small pond",
+            "pool",
+            "lake"
+          ],
+          "lookDescription": "a peaceful freshwater pond to the north with ripples moving across the clear surface and small fish swimming beneath.",
+          "requirements": [
+            {
+              "type": "item",
+              "item": "fishing rod",
+              "description": "Requires a fishing rod to fish in the pond.",
+              "failMessage": "You gaze into the pond and spot several fish swimming lazily near the bank, but you need a fishing rod to fish here."
+            }
+          ],
+          "state": {
+            "hasFished": false
+          },
+          "interactions": {
+            "onInteractSuccess": "Using your fishing rod, you cast your line into the pond and catch a fresh, glistening river fish!",
+            "onInteractAlreadyDone": "You have already fished in the pond for now."
+          }
+        },
+        {
+          "id": "path_to_smoulder",
+          "name": "Path to Smoulder",
+          "position": "east",
+          "aliases": [
+            "path",
+            "trail",
+            "road",
+            "east path",
+            "smoulder",
+            "town of smoulder",
+            "path to smoulder",
+            "dirt path"
+          ],
+          "lookDescription": "a dirt path to the east that leads to the small town of Smoulder.",
+          "requirements": [],
+          "state": {},
+          "interactions": {
+            "onInteractSuccess": "You follow the path to the east and make your way toward the small town of Smoulder."
+          }
+        }
+      ],
+      "npcs": [
+        {
+          "id": "jonathon",
+          "name": "Jonathon",
+          "title": "Villager",
+          "avatar": "🪵",
+          "position": "west",
+          "aliases": [
+            "jonathon",
+            "jonathan",
+            "boy",
+            "woodcutter",
+            "villager",
+            "young man"
+          ],
+          "personality": "A friendly young villager sitting on the wood pile on the west side of the Clearing.",
+          "greeting": "Hi there! Pleasant day in the clearing, isn't it?",
+          "loreKnowledge": "Jonathon knows: 1) His parents are doing fine. 2) He thinks your late father was a good man and feels bad that he's dead. 3) For your father's chest, he recommends talking to Ribald the blacksmith in Smoulder. 4) The path to the east leads to the town of Smoulder.",
+          "dialogueLines": [
+            {
+              "id": "jonathon_hi",
+              "topic": "hi",
+              "keywords": [
+                "hi",
+                "hello",
+                "hey",
+                "greetings",
+                "say hi",
+                "good morning",
+                "good day"
+              ],
+              "reply": "Hi there! Always good to see you. How are you holding up?"
+            },
+            {
+              "id": "jonathon_parents",
+              "topic": "parents",
+              "keywords": [
+                "parents",
+                "mother",
+                "mom",
+                "father and mother",
+                "mom and dad",
+                "how are your parents",
+                "about your parents",
+                "family",
+                "folks"
+              ],
+              "reply": "My parents? Oh, they are doing fine, thanks for asking! Keeping busy with the farm, but healthy and well."
+            },
+            {
+              "id": "jonathon_late_father",
+              "topic": "late father",
+              "keywords": [
+                "father",
+                "late father",
+                "my father",
+                "my dad",
+                "dad",
+                "about my father",
+                "about father"
+              ],
+              "reply": "Your late father was truly a good man. Everyone in these parts had immense respect for him, and I feel really bad that he's dead. We all miss him."
+            },
+            {
+              "id": "jonathon_chest",
+              "topic": "chest",
+              "keywords": [
+                "chest",
+                "father's chest",
+                "late father's chest",
+                "fathers chest",
+                "locked chest",
+                "box",
+                "iron chest",
+                "ribald",
+                "blacksmith"
+              ],
+              "reply": "Regarding your late father's chest, that iron lock is stout work. I recommend talking to Ribald the blacksmith in Smoulder. If anyone can help you with it, it's Ribald."
+            },
+            {
+              "id": "jonathon_smoulder",
+              "topic": "smoulder",
+              "keywords": [
+                "smoulder",
+                "town",
+                "path",
+                "east",
+                "ribald",
+                "blacksmith"
+              ],
+              "reply": "Smoulder is just down the eastern path. Ribald runs the smithy there—you can't miss the smoke from his forge."
+            }
+          ],
+          "state": {
+            "hasMet": false,
+            "conversationCount": 0
+          }
+        }
+      ]
+    }
+  ]
+}

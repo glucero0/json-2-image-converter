@@ -1,0 +1,210 @@
+{
+  "comment": "Human-editable scene file. Tweak room, camera, objects, or the prompt, then rerun the CLI on this .scene.json file. Leave prompt empty to rebuild it from the structured fields.",
+  "kind": "json-to-image-scene",
+  "version": 1,
+  "source": {
+    "file": "example_file.json",
+    "compiledAt": "2026-09-20T21:38:40.010Z"
+  },
+  "style": {
+    "medium": "Stylized 3D still, smooth shading, simple rounded silhouettes. Not photorealistic, not painterly, not pixel art.",
+    "camera": "Eye-level first-person view, slight wide angle, standing at the south side of the space looking inward.",
+    "materials": "Pale oak hardwood or packed earth underfoot, cream plaster or timber walls, matte wood furniture.",
+    "lighting": "Soft global illumination and warm daylight. No hard cinematic rim lights, no neon.",
+    "palette": "Warm neutrals: cream, pale oak, charcoal accents, muted greens outdoors.",
+    "avoid": [
+      "staircases unless the location mentions stairs",
+      "modern sofas, file cabinets, or extra furniture not listed",
+      "UI chrome, captions, watermarks, or readable text overlays",
+      "people unless an NPC is listed"
+    ]
+  },
+  "initialLocationId": "small_house",
+  "scenes": [
+    {
+      "id": "small_house",
+      "name": "Small House",
+      "room": {
+        "environment": "interior",
+        "name": "Small House",
+        "description": "You are in a small house. Sunlight filters through the window, illuminating a modest and cozy interior.",
+        "widthMeters": 5.5,
+        "depthMeters": 6.5,
+        "heightMeters": 2.6,
+        "floor": "Pale oak hardwood boards",
+        "walls": "Cream plaster with simple timber trim",
+        "impliedWindow": {
+          "present": true,
+          "wall": "west",
+          "notes": "Sunlight filters through this window onto the floor."
+        }
+      },
+      "camera": {
+        "stand": "south",
+        "look": "north",
+        "heightMeters": 1.5,
+        "fovDegrees": 60,
+        "notes": "Eye-level first-person view from the south, looking toward the north side of the location."
+      },
+      "lights": [
+        {
+          "id": "ambient",
+          "type": "ambient",
+          "notes": "Soft fill so shadows stay gentle."
+        },
+        {
+          "id": "sun",
+          "type": "sun",
+          "from": "west",
+          "notes": "Warm daylight entering from the implied window."
+        }
+      ],
+      "objects": [
+        {
+          "id": "fathers_chest",
+          "name": "Late father's chest",
+          "kind": "prop",
+          "position": "south",
+          "appearance": "a chest that was owned by your late father, reinforced with iron bands and locked tightly.",
+          "state": {
+            "status": "locked",
+            "isOpen": false,
+            "isLocked": true
+          }
+        },
+        {
+          "id": "bed",
+          "name": "Bed",
+          "kind": "prop",
+          "position": "south",
+          "appearance": "a modest bed on the south side of the room with a wool blanket and feathered pillow.",
+          "state": {
+            "isRested": false
+          }
+        },
+        {
+          "id": "pots_and_pans",
+          "name": "Pots and pans",
+          "kind": "prop",
+          "position": "east",
+          "appearance": "some pots and pans piled on the counter on the east side on an old table, with a wash basin and carafe of fresh well water near by",
+          "state": {
+            "status": "dirty",
+            "isClean": false
+          }
+        },
+        {
+          "id": "coat_rack",
+          "name": "Coat rack",
+          "kind": "prop",
+          "position": "west",
+          "appearance": "a coat rack on the west side holding your late father's sturdy travel coat.",
+          "state": {
+            "status": "hanging",
+            "coatTaken": false,
+            "isWorn": false
+          }
+        },
+        {
+          "id": "north_door",
+          "name": "North-facing door",
+          "kind": "exit",
+          "position": "north",
+          "appearance": "a heavy wooden north-facing door leading outside to the Clearing.",
+          "state": {
+            "status": "closed",
+            "isOpen": false
+          }
+        }
+      ],
+      "prompt": "Create one still image of a single modest interior room named \"Small House\".\n\nSTYLE\nStylized 3D still, smooth shading, simple rounded silhouettes. Not photorealistic, not painterly, not pixel art.\nEye-level first-person view, slight wide angle, standing at the south side of the space looking inward.\nPale oak hardwood or packed earth underfoot, cream plaster or timber walls, matte wood furniture.\nSoft global illumination and warm daylight. No hard cinematic rim lights, no neon.\nPalette: Warm neutrals: cream, pale oak, charcoal accents, muted greens outdoors.\nAvoid: staircases unless the location mentions stairs; modern sofas, file cabinets, or extra furniture not listed; UI chrome, captions, watermarks, or readable text overlays; people unless an NPC is listed.\n\nCAMERA\nStand at the south side, look toward north. Eye height 1.5 m, FOV about 60 degrees.\nEye-level first-person view from the south, looking toward the north side of the location.\n\nSPACE\nYou are in a small house. Sunlight filters through the window, illuminating a modest and cozy interior.\nApproximate size: 5.5 m wide, 6.5 m deep, 2.6 m high.\nFloor: Pale oak hardwood boards\nWalls or edges: Cream plaster with simple timber trim\nA window is implied on the west wall. Sunlight filters through this window onto the floor.\n\nLIGHTS\n- ambient (ambient): Soft fill so shadows stay gentle.\n- sun (sun, from west): Warm daylight entering from the implied window.\n\nPLACE THESE SUBJECTS AND NO OTHERS\nNORTH (back wall from camera)\n- North-facing door (exit, north): a heavy wooden north-facing door leading outside to the Clearing. Current state: status=closed, isOpen=false.\nEAST (right)\n- Pots and pans (prop, east): some pots and pans piled on the counter on the east side on an old table, with a wash basin and carafe of fresh well water near by Current state: status=dirty, isClean=false.\nSOUTH (foreground / behind or beside camera)\n- Late father's chest (prop, south): a chest that was owned by your late father, reinforced with iron bands and locked tightly. Current state: status=locked, isOpen=false, isLocked=true.\n- Bed (prop, south): a modest bed on the south side of the room with a wool blanket and feathered pillow. Current state: isRested=false.\nWEST (left)\n- Coat rack (prop, west): a coat rack on the west side holding your late father's sturdy travel coat. Current state: status=hanging, coatTaken=false, isWorn=false.\n\nOutput a single 16:9 frame. No collage, no split screen, no caption."
+    },
+    {
+      "id": "clearing",
+      "name": "Clearing",
+      "room": {
+        "environment": "exterior",
+        "name": "Clearing",
+        "description": "You are in a peaceful clearing that sits just outside of the north door of the house. A gentle breeze stirs the trees around you.",
+        "widthMeters": 14,
+        "depthMeters": 16,
+        "heightMeters": 8,
+        "floor": "Packed earth, short grass, and a dirt path",
+        "walls": "Open tree line and sky; no interior walls",
+        "impliedWindow": {
+          "present": false,
+          "wall": null,
+          "notes": ""
+        }
+      },
+      "camera": {
+        "stand": "south",
+        "look": "north",
+        "heightMeters": 1.5,
+        "fovDegrees": 60,
+        "notes": "Eye-level first-person view from the south, looking toward the north side of the location."
+      },
+      "lights": [
+        {
+          "id": "ambient",
+          "type": "ambient",
+          "notes": "Soft fill so shadows stay gentle."
+        },
+        {
+          "id": "sun",
+          "type": "sun",
+          "from": "east",
+          "notes": "Open daylight from a clear sky."
+        }
+      ],
+      "objects": [
+        {
+          "id": "house_door",
+          "name": "House door",
+          "kind": "exit",
+          "position": "south",
+          "appearance": "the wooden door of the house to the south, letting you reenter the house.",
+          "state": {
+            "status": "closed",
+            "isOpen": false
+          }
+        },
+        {
+          "id": "wood_pile",
+          "name": "Wood pile",
+          "kind": "prop",
+          "position": "west",
+          "appearance": "a neatly stacked wood pile on the west side of the Clearing, where Jonathon is sitting.",
+          "state": {}
+        },
+        {
+          "id": "pond",
+          "name": "Pond",
+          "kind": "prop",
+          "position": "north",
+          "appearance": "a peaceful freshwater pond to the north with ripples moving across the clear surface and small fish swimming beneath.",
+          "state": {
+            "hasFished": false
+          }
+        },
+        {
+          "id": "path_to_smoulder",
+          "name": "Path to Smoulder",
+          "kind": "exit",
+          "position": "east",
+          "appearance": "a dirt path to the east that leads to the small town of Smoulder.",
+          "state": {}
+        },
+        {
+          "id": "jonathon",
+          "name": "Jonathon, Villager",
+          "kind": "npc",
+          "position": "west",
+          "appearance": "A friendly young villager sitting on the wood pile on the west side of the Clearing.",
+          "state": {}
+        }
+      ],
+      "prompt": "Create one still image of an outdoor location named \"Clearing\".\n\nSTYLE\nStylized 3D still, smooth shading, simple rounded silhouettes. Not photorealistic, not painterly, not pixel art.\nEye-level first-person view, slight wide angle, standing at the south side of the space looking inward.\nPale oak hardwood or packed earth underfoot, cream plaster or timber walls, matte wood furniture.\nSoft global illumination and warm daylight. No hard cinematic rim lights, no neon.\nPalette: Warm neutrals: cream, pale oak, charcoal accents, muted greens outdoors.\nAvoid: staircases unless the location mentions stairs; modern sofas, file cabinets, or extra furniture not listed; UI chrome, captions, watermarks, or readable text overlays; people unless an NPC is listed.\n\nCAMERA\nStand at the south side, look toward north. Eye height 1.5 m, FOV about 60 degrees.\nEye-level first-person view from the south, looking toward the north side of the location.\n\nSPACE\nYou are in a peaceful clearing that sits just outside of the north door of the house. A gentle breeze stirs the trees around you.\nApproximate size: 14 m wide, 16 m deep, 8 m high.\nFloor: Packed earth, short grass, and a dirt path\nWalls or edges: Open tree line and sky; no interior walls\nNo window is implied unless an object describes one.\n\nLIGHTS\n- ambient (ambient): Soft fill so shadows stay gentle.\n- sun (sun, from east): Open daylight from a clear sky.\n\nPLACE THESE SUBJECTS AND NO OTHERS\nNORTH (back wall from camera)\n- Pond (prop, north): a peaceful freshwater pond to the north with ripples moving across the clear surface and small fish swimming beneath. Current state: hasFished=false.\nEAST (right)\n- Path to Smoulder (exit, east): a dirt path to the east that leads to the small town of Smoulder.\nSOUTH (foreground / behind or beside camera)\n- House door (exit, south): the wooden door of the house to the south, letting you reenter the house. Current state: status=closed, isOpen=false.\nWEST (left)\n- Wood pile (prop, west): a neatly stacked wood pile on the west side of the Clearing, where Jonathon is sitting.\n- Jonathon, Villager (npc, west): A friendly young villager sitting on the wood pile on the west side of the Clearing.\n\nOutput a single 16:9 frame. No collage, no split screen, no caption."
+    }
+  ]
+}
