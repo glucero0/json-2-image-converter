@@ -2,6 +2,8 @@
 
 Command-line tool that turns an adventure-location JSON file into a **human-editable scene file**, then optionally renders a still image with Gemini.
 
+Each location becomes one **first-person 16:9 still**: a stylized 3D view of a cozy cottage interior or an outdoor clearing, standing at the south side looking north. Soft warm daylight, pale oak and cream plaster (or packed earth and trees outside), and only the props, exits, and NPCs from the adventure JSON. Not photorealistic, not painterly, not pixel art — closer to a simple 3D game screenshot.
+
 You do **not** need a Gemini API key to compile the scene. A key is only required when you want the app to generate the PNG.
 
 ## Why there is a scene file
